@@ -166,16 +166,25 @@ body {
 
 .health-score-card {
   background: white;
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  ...
 }
 
-.health-score-card h2 {
-  font-size: 1.3rem;
-  color: #1e3a8a;
-  margin-bottom: 20px;
+.score-circle {
+  width: 150px;
+  ...
+}
+
+.score-number {
+  font-size: 3rem;
+  ...
+}
+
+.score-total {
+  ...
+}
+
+.score-label {
+  ...
 }
 
 .score-circle {
