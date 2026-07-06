@@ -436,3 +436,57 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
+/* Health Gauge */
+.health-gauge-container {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.health-gauge-container h2 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.gauge-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 16px;
+}
+
+.gauge-svg {
+  transform: rotate(0deg);
+}
+
+.gauge-progress {
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.gauge-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+  display: block;
+}
+
+.gauge-total {
+  font-size: 1rem;
+  color: #718096;
+}
+
+.gauge-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
