@@ -77,6 +77,7 @@ body {
   padding: 16px;
   font-size: 0.9rem;
 }
+
 /* Code Input Styles */
 .code-input-container {
   background: white;
@@ -157,6 +158,42 @@ body {
 .btn-clear:hover {
   background: #cbd5e0;
 }
+
+/* File Upload Area */
+.upload-area {
+  border: 2px dashed #2563eb;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 16px;
+  background: #f8fafc;
+  transition: all 0.2s;
+}
+
+.upload-area:hover {
+  background: #eff6ff;
+  border-color: #1d4ed8;
+}
+
+.upload-area.dragging {
+  background: #dbeafe;
+  border-color: #1d4ed8;
+  transform: scale(1.01);
+}
+
+.upload-area p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.upload-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* Results Dashboard Styles */
 .results-container {
   display: flex;
@@ -164,53 +201,57 @@ body {
   gap: 24px;
 }
 
-.health-score-card {
+/* Health Gauge */
+.health-gauge-container {
   background: white;
-  ...
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.score-circle {
-  width: 150px;
-  ...
+.health-gauge-container h2 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
 }
 
-.score-number {
-  font-size: 3rem;
-  ...
-}
-
-.score-total {
-  ...
-}
-
-.score-label {
-  ...
-}
-
-.score-circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 8px solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.gauge-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
   margin: 0 auto 16px;
 }
 
-.score-number {
-  font-size: 3rem;
-  font-weight: bold;
-  line-height: 1;
+.gauge-svg {
+  transform: rotate(0deg);
 }
 
-.score-total {
+.gauge-progress {
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.gauge-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+  display: block;
+}
+
+.gauge-total {
   font-size: 1rem;
   color: #718096;
 }
 
-.score-label {
+.gauge-label {
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -303,6 +344,7 @@ body {
 .btn-pdf:hover {
   background: #15803d;
 }
+
 /* Issue Card Styles */
 .issue-card {
   background: white;
@@ -410,92 +452,4 @@ body {
 
 .fix-section h4 {
   color: #15803d;
-}
-/* File Upload Area */
-.upload-area {
-  border: 2px dashed #2563eb;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 16px;
-  background: #f8fafc;
-  transition: all 0.2s;
-}
-
-.upload-area:hover {
-  background: #eff6ff;
-  border-color: #1d4ed8;
-}
-
-.upload-area.dragging {
-  background: #dbeafe;
-  border-color: #1d4ed8;
-  transform: scale(1.01);
-}
-
-.upload-area p {
-  color: #4a5568;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.upload-link {
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: underline;
-}
-/* Health Gauge */
-.health-gauge-container {
-  background: white;
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.health-gauge-container h2 {
-  font-size: 1.3rem;
-  color: #1e3a8a;
-  margin-bottom: 20px;
-}
-
-.gauge-wrapper {
-  position: relative;
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 16px;
-}
-
-.gauge-svg {
-  transform: rotate(0deg);
-}
-
-.gauge-progress {
-  transition: stroke-dashoffset 1.5s ease-in-out;
-}
-
-.gauge-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.gauge-score {
-  font-size: 2.5rem;
-  font-weight: bold;
-  line-height: 1;
-  display: block;
-}
-
-.gauge-total {
-  font-size: 1rem;
-  color: #718096;
-}
-
-.gauge-label {
-  font-size: 1.2rem;
-  font-weight: 600;
 }
