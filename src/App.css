@@ -453,3 +453,124 @@ body {
 .fix-section h4 {
   color: #15803d;
 }
+/* Dark Mode */
+.app.dark {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.app.dark .app-header {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+.app.dark .code-input-container {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.app.dark .code-input-header h2 {
+  color: #93c5fd;
+}
+
+.app.dark .code-textarea {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+.app.dark .upload-area {
+  background: #1e293b;
+  border-color: #3b82f6;
+  color: #e2e8f0;
+}
+
+.app.dark .upload-area p {
+  color: #94a3b8;
+}
+
+.app.dark .filename-input {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+.app.dark .summary-card {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.app.dark .summary-card h2 {
+  color: #93c5fd;
+}
+
+.app.dark .issues-section {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.app.dark .issues-section h2 {
+  color: #93c5fd;
+}
+
+.app.dark .issue-card {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.app.dark .issue-header:hover {
+  background: #0f172a;
+}
+
+.app.dark .issue-name {
+  color: #e2e8f0;
+}
+
+.app.dark .issue-meta {
+  color: #94a3b8;
+}
+
+.app.dark .issue-details {
+  border-top-color: #334155;
+}
+
+.app.dark .detail-section p {
+  color: #cbd5e1;
+}
+
+.app.dark .ai-section {
+  background: #1e3a8a;
+}
+
+.app.dark .fix-section {
+  background: #14532d;
+}
+
+.app.dark .app-footer {
+  background: #0f172a;
+}
+
+/* Dark Mode Toggle Button */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dark-mode-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.dark-mode-btn:hover {
+  background: rgba(255,255,255,0.3);
+}

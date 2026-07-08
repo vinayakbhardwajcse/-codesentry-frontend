@@ -9,6 +9,7 @@ function App() {
   const [error, setError] = useState(null);
   const [sourceCode, setSourceCode] = useState('');
   const [fileName, setFileName] = useState('MyCode.java');
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleScanComplete = (result, code, name) => {
     setScanResult(result);
@@ -27,10 +28,20 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={`app ${darkMode ? 'dark' : ''}`}>
       <header className="app-header">
-        <h1>🔍 CodeSentry</h1>
-        <p>AI-Powered Java Code Review System</p>
+        <div className="header-content">
+          <div>
+            <h1>🔍 CodeSentry</h1>
+            <p>AI-Powered Java Code Review System</p>
+          </div>
+          <button
+            className="dark-mode-btn"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+          </button>
+        </div>
       </header>
 
       <main className="app-main">
@@ -38,12 +49,20 @@ function App() {
           onScanComplete={handleScanComplete}
           onError={handleError}
           onLoading={handleLoading}
+          darkMode={darkMode}
         />
 
         {loading && (
           <div className="loading">
             <div className="spinner"></div>
-            <p>Analyzing your code...</p>
+            <p>🔍 Analyzing your code...</p>
+            <p style={{
+              fontSize: '0.85rem',
+              color: darkMode ? '#94a3b8' : '#718096',
+              marginTop: '8px'
+            }}>
+              This may take 15-30 seconds on first request
+            </p>
           </div>
         )}
 
@@ -58,6 +77,7 @@ function App() {
             result={scanResult}
             sourceCode={sourceCode}
             fileName={fileName}
+            darkMode={darkMode}
           />
         )}
       </main>
