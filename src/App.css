@@ -574,3 +574,31 @@ body {
 .dark-mode-btn:hover {
   background: rgba(255,255,255,0.3);
 }
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.tab {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 8px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.tab.active {
+  background: white;
+  color: #1e3a8a;
+}

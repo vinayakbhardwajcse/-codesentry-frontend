@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CodeInput from './components/CodeInput';
 import ResultsDashboard from './components/ResultsDashboard';
+import GitHubScanner from './components/GitHubScanner';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [sourceCode, setSourceCode] = useState('');
   const [fileName, setFileName] = useState('MyCode.java');
   const [darkMode, setDarkMode] = useState(false);
+  const [activeTab, setActiveTab] = useState('code');
 
   const handleScanComplete = (result, code, name) => {
     setScanResult(result);
@@ -42,43 +44,75 @@ function App() {
             {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
           </button>
         </div>
+
+        {/* Tabs */}
+        <div className="tabs">
+          <button
+            className={`tab ${activeTab === 'code' ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab('code');
+              setScanResult(null);
+              setError(null);
+            }}
+          >
+            📝 Code Review
+          </button>
+          <button
+            className={`tab ${activeTab === 'github' ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab('github');
+              setScanResult(null);
+              setError(null);
+            }}
+          >
+            🐙 GitHub Scanner
+          </button>
+        </div>
       </header>
 
       <main className="app-main">
-        <CodeInput
-          onScanComplete={handleScanComplete}
-          onError={handleError}
-          onLoading={handleLoading}
-          darkMode={darkMode}
-        />
+        {activeTab === 'code' && (
+          <>
+            <CodeInput
+              onScanComplete={handleScanComplete}
+              onError={handleError}
+              onLoading={handleLoading}
+              darkMode={darkMode}
+            />
 
-        {loading && (
-          <div className="loading">
-            <div className="spinner"></div>
-            <p>🔍 Analyzing your code...</p>
-            <p style={{
-              fontSize: '0.85rem',
-              color: darkMode ? '#94a3b8' : '#718096',
-              marginTop: '8px'
-            }}>
-              This may take 15-30 seconds on first request
-            </p>
-          </div>
+            {loading && (
+              <div className="loading">
+                <div className="spinner"></div>
+                <p>🔍 Analyzing your code...</p>
+                <p style={{
+                  fontSize: '0.85rem',
+                  color: darkMode ? '#94a3b8' : '#718096',
+                  marginTop: '8px'
+                }}>
+                  This may take 15-30 seconds on first request
+                </p>
+              </div>
+            )}
+
+            {error && (
+              <div className="error-box">
+                <p>❌ {error}</p>
+              </div>
+            )}
+
+            {scanResult && !loading && (
+              <ResultsDashboard
+                result={scanResult}
+                sourceCode={sourceCode}
+                fileName={fileName}
+                darkMode={darkMode}
+              />
+            )}
+          </>
         )}
 
-        {error && (
-          <div className="error-box">
-            <p>❌ {error}</p>
-          </div>
-        )}
-
-        {scanResult && !loading && (
-          <ResultsDashboard
-            result={scanResult}
-            sourceCode={sourceCode}
-            fileName={fileName}
-            darkMode={darkMode}
-          />
+        {activeTab === 'github' && (
+          <GitHubScanner darkMode={darkMode} />
         )}
       </main>
 
