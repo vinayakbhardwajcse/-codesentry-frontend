@@ -103,7 +103,7 @@ function GitHubScanner({ darkMode }) {
             Try these examples:
           </p>
           {[
-            'https://github.com/vinayakbhardwajcse/codesentry-frontend',
+            'https://github.com/vinayakbhardwajcse/Repository-name-codesentry-backend-Visibility-Public',
           ].map((url) => (
             <button
               key={url}
